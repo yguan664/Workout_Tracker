@@ -1,6 +1,6 @@
 import os
 import pytest
-from src.workout_tracker.io import load_workouts
+from workout_tracker.io import load_workouts
 
 
 def test_load_workouts():
