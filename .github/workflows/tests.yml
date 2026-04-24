@@ -19,7 +19,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pytest ruff
+        run: pip install pytest ruff matplotlib
 
       - name: Run ruff
         run: ruff check .
