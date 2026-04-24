@@ -3,6 +3,7 @@ from workout_tracker.io import load_workouts
 
 
 def test_load_workouts(tmp_path):
+    """Test that load_workouts reads a CSV and returns correct data."""
     f = tmp_path / "workouts.csv"
     f.write_text(
         "date,exercise,weight,reps\n"
@@ -20,6 +21,7 @@ def test_load_workouts(tmp_path):
 
 
 def test_bad_weight(tmp_path):
+    """Test that negative weight raises ValueError."""
     f = tmp_path / "bad.csv"
     f.write_text("date,exercise,weight,reps\n2026-04-01,squat,-10,5\n")
     with pytest.raises(ValueError):
@@ -27,6 +29,7 @@ def test_bad_weight(tmp_path):
 
 
 def test_bad_reps(tmp_path):
+    """Test that zero reps raises ValueError."""
     f = tmp_path / "bad.csv"
     f.write_text("date,exercise,weight,reps\n2026-04-01,squat,100,0\n")
     with pytest.raises(ValueError):
